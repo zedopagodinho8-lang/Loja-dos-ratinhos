@@ -1,0 +1,120 @@
+!DOCTYPE html>
+<html lang="pt-BR">
+<head<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Minha Loja Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Minha Loja Online</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Carrinho</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="carrinho">
+      <h2>Carrinho de Compras</h2>
+      <p>Seu carrinho está vazio.</p>
+      <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Minha Loja Online</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body<script src="script.js"></script/>
+</body>
+</html>
+
+
+let carrinho = [];
+
+function comprarProduto(produto, preco) {
+  carrinho.push({ nome: produto, valor: preco });
+  alert("Você adicionou " + produto + " (R$ " + preco + ") ao carrinho.\nEste site é apenas uma demonstração.");
+  atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+  const lista = document.getElementById("lista-carrinho");
+  lista.innerHTML = "";
+
+  let total = 0;
+  carrinho.forEach((item) => {
+    total += item.valor;
+    const li = document.createElement("li");
+    li.textContent = `${item.nome} - R$ ${item.valor}`;
+    lista.appendChild(li);
+  });
+
+  document.getElementById("total").textContent = total;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffccff, #ccffff);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.produtos {
+  margin: 30px;
+}
+
+.produto {
+  display: inline-block;
+  background: #ffffffcc;
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button {
+  background: linear-gradient(90deg, #6a1b9a, #9c27b0);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff9800, #f44336);
+  transform: scale(1.1);
+}
+
+button:active {
+  background: #009688;
+}
+
+.carrinho {
+  margin-top: 40px;
+  color: #4b0082;
+  background: #e1bee7;
+  padding: 20px;
+  border-radius: 10px;
+}
